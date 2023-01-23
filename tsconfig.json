@@ -4,7 +4,8 @@
     "**/*.ts",
     "**/*.tsx",
     "app/components/Reviews/Reviews.stories.js",
-    "app/components/Reviews/Reviews.jsx"
+    "app/components/Reviews/Reviews.jsx",
+    "app/components/Text/Text.jsx"
   ],
   "compilerOptions": {
     "lib": [

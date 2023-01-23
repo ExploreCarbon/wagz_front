@@ -1,5 +1,4 @@
 type ButtonProps = {
-	label: string;
 	type?: "button" | "submit" | "reset";
 	size: "small" | "medium" | "large";
 	variant: "primary" | "secondary" | "tertiary" | "white";
@@ -15,15 +14,17 @@ function Button({
 	children,
 }: ButtonProps): JSX.Element {
 	return (
-		<div>
-			<button
-				type={type}
-				onClick={onClick}
-				className={`button ${size} ${variant}`}
-			>
-				{children}
-			</button>
-		</div>
+		<>
+			{children && (
+				<button
+					type={type}
+					onClick={onClick}
+					className={`button ${size} ${variant}`}
+				>
+					{children}
+				</button>
+			)}
+		</>
 	);
 }
 

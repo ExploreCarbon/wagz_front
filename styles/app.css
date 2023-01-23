@@ -6,7 +6,7 @@
   :root {
     --primary: 0, 156, 222;
     --primary-dark: 0, 101, 144;
-    --secondary: 0, 102, 17;
+    --secondary: 79, 205, 50;
     --tertiary: 222, 0, 45;
     --white: 255, 255, 255;
   }
@@ -67,11 +67,13 @@
 }
 
 .button.white {
+  @apply border-2 border-primary text-primary;
   background-color: rgb(var(--white));
 }
 
 .button.white:hover {
-  box-shadow: 10px 10px 0 rgba(var(--white), 0.5);
+  @apply text-primary-dark border-primary-dark;
+  box-shadow: 10px 10px 0 rgba(var(--primary), 0.5);
 }
 
 .button.tertiary {
@@ -144,6 +146,15 @@ h4 {
   @apply text-white;
 }
 
+.header.blended {
+  background-color: #037197;
+  background-image: linear-gradient(45deg, #037197, #2eac4d);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .header-div {
   @apply w-full;
 }
@@ -193,3 +204,34 @@ h4,
 .circle-text {
   @apply text-2xl text-white lg:w-3/4 pb-4;
 }
+
+/* Text Block */
+.text-block .subTitle,
+.text-block .supTitle {
+  @apply uppercase text-black text-lg;
+}
+
+.text-block .title {
+  @apply text-5xl;
+}
+
+.text-block .text {
+  @apply py-8;
+}
+
+.text-block .text p {
+  @apply text-base lg:text-xl leading-loose;
+}
+
+.text-block .buttons {
+  @apply flex flex-col lg:flex-row gap-8;
+}
+
+.copywrite {
+  @apply text-sm;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+
+/* Icon */

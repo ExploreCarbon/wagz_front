@@ -1,10 +1,11 @@
 import Balancer from "react-wrap-balancer";
+import Text from "../Text/Text";
 type HeadlineProps = {
 	children: React.ReactNode;
 	id?: string;
 	size?: "h1" | "h2" | "h3" | "h4";
 	fontFamily?: "sans" | "serif";
-	color?: "primary" | "secondary" | "black" | "white";
+	color?: "primary" | "secondary" | "black" | "white" | "blended";
 	align?: "left" | "center";
 	extraClass?: string;
 };
@@ -25,7 +26,7 @@ function Headline({
 						className={`header ${fontFamily} ${color} ${align} ${extraClass}`}
 						id={id}
 					>
-						{children}
+						<Text text={children} />
 					</h1>
 				)}
 				{size === "h2" && (
@@ -33,7 +34,7 @@ function Headline({
 						className={`header ${fontFamily} ${color} ${align} ${extraClass}`}
 						id={id}
 					>
-						{children}
+						<Text text={children} />
 					</h2>
 				)}
 				{size === "h3" && (
@@ -41,7 +42,7 @@ function Headline({
 						className={`header ${fontFamily} ${color} ${align} ${extraClass}`}
 						id={id}
 					>
-						{children}
+						<Text text={children} />
 					</h3>
 				)}
 				{size === "h4" && (
@@ -49,7 +50,7 @@ function Headline({
 						className={`header ${fontFamily} ${color} ${align} ${extraClass}`}
 						id={id}
 					>
-						{children}
+						<Text text={children} />
 					</h4>
 				)}
 			</Balancer>
