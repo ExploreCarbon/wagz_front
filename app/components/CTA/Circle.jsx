@@ -3,15 +3,8 @@ import Button from "../Button/Button";
 export default function Split({ title, text, buttonText, buttonLink }) {
   return (
     <div className="relative flex flex-col md:flex-row justify-center items-center bg-primary lg:bg-white circle space-y-8 md:space-y-0">
-      <div className="bg-primary flex-1 mr-0 md:mr-2 flex flex-col items-center">
+      <div className="bg-primary flex-1 mt-8 lg:mt-0 mr-0 md:mr-2 flex flex-col items-center">
         <div className="wagz-container flex flex-col lg:flex-row gap-8 items-center py-0 lg:py-12 cta-section">
-          <div>
-            <img
-              class="w-56  h-auto object-cover"
-              src="https://cdn.shopify.com/s/files/1/0474/1899/8949/files/Layer_3_1024x1024.png?v=1646808838"
-              alt=""
-            />
-          </div>
           <div className="flex flex-col space-y-4 flex-1 items-center lg:items-start w-full">
             <Header size="h2" color="white">
               {title}

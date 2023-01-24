@@ -3,7 +3,6 @@ import React from "react";
 const Text = (text) => {
   // Change ® into <span>®</span>
   function convertText(text) {
-    console.log(text);
     var convert = text;
     if (text.text) {
       convert = text.text;

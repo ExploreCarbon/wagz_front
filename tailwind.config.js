@@ -12,7 +12,7 @@ module.exports = {
 				tertiary: "#DE002D",
 			},
 			fontFamily: {
-				sans: ["Raleway", ...defaultTheme.fontFamily.sans],
+				sans: ["Filson Pro Bold", ...defaultTheme.fontFamily.sans],
 				serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
 			},
 			animation: {

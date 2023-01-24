@@ -11,7 +11,8 @@
     "cloudflare": "concurrently \"cloudflared tunnel --config ~/.cloudflared/wagz-style.yaml run wagz-style\" \"cloudflared tunnel --config ~/.cloudflared/wagz.yaml run wagz\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs-build -s ./stories/assets",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "chromatic": "npx chromatic --project-token=d452ac238579"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
@@ -58,5 +59,9 @@
   },
   "engines": {
     "node": ">=14"
-  }
+  },
+  "name": "Carbon",
+  "version": "",
+  "readme": "ERROR: No README data found!",
+  "_id": "@"
 }

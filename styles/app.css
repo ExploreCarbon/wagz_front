@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Filson Pro Bold";
+  src: url(https://cdn.shopify.com/s/files/1/2800/8456/t/6/assets/wagz-store-filson-pro-bold.woff?v=1601576487);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Filson Pro Bold", sans-serif;
+}
+
+body,
+p,
+ul,
+ol,
+li,
+a,
+button,
+input,
+textarea,
+select,
+label,
+span,
+div {
+  font-family: "Lato", sans-serif;
+}
+
 @layer base {
   :root {
     --primary: 0, 156, 222;
@@ -224,7 +254,7 @@ h4,
 }
 
 .text-block .buttons {
-  @apply flex flex-col lg:flex-row gap-8;
+  @apply flex flex-col md:flex-row gap-8;
 }
 
 .copywrite {
@@ -235,3 +265,91 @@ h4,
 }
 
 /* Icon */
+
+/* Hero */
+
+.hero {
+  @apply relative;
+}
+
+.hero .hero-image {
+  @apply min-h-[350px] md:min-h-[500px] xl:min-h-[600px];
+}
+
+.hero .hero-image img {
+  @apply relative h-full;
+}
+
+.hero .hero-image .fullScreen {
+  @apply hidden lg:block;
+}
+.hero .hero-image .mediumScreen {
+  @apply hidden md:block lg:hidden;
+}
+.hero .hero-image .smallScreen {
+  @apply block md:hidden;
+}
+
+.hero {
+  background: linear-gradient(90deg, #006d9c 0, #49d01f 100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(90deg, #006d9c 0, #49d01f 100%);
+}
+
+.image {
+  @apply h-72 w-72 xl:h-96 xl:w-96;
+}
+
+.image.circle {
+  @apply rounded-full object-cover object-top;
+}
+
+.image.square {
+  @apply object-contain object-top;
+}
+
+.footer {
+  @apply relative;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(90deg, #006d9c 0, #49d01f 100%);
+}
+
+.bg-linear {
+  background: linear-gradient(90deg, #006d9c 0, #49d01f 100%);
+}
+
+/* Logos */
+@keyframes slideshow {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -200%;
+  }
+}
+@keyframes moveSlideshow {
+  100% {
+    -webkit-transform: translateX(-200%);
+  }
+}
+
+.scroll-logos {
+  position: relative;
+  animation: slideshow 10s linear infinite;
+  transform: translate3d(0, 0, 0);
+}

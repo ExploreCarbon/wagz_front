@@ -9,20 +9,20 @@ import {
 
 const navigation = {
 	pages: [
-		{ name: "Company", href: "#" },
-		{ name: "Stores", href: "#" },
+		{ name: "Product", href: "#" },
+		{ name: "How Wagz Works", href: "#" },
+		{ name: "About", href: "#" },
+		{ name: "Reviews", href: "#" },
+		{ name: "Contact", href: "#" },
+		{ name: "Help", href: "#" },
 	],
 };
 
-function classNames(...classes) {
-	return classes.filter(Boolean).join(" ");
-}
-
-export default function Example() {
+export default function Navigation() {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<div className="bg-white">
+		<div className="bg-transparent">
 			{/* Mobile menu */}
 			<Transition.Root show={open} as={Fragment}>
 				<Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -105,7 +105,7 @@ export default function Example() {
 
 							{/* Flyout menus */}
 							<Popover.Group className="hidden lg:block lg:self-stretch">
-								<div className="flex h-full space-x-8">
+								<div className="flex h-full gap-4">
 									{navigation.pages.map((page) => (
 										<a
 											key={page.name}
