@@ -1,20 +1,7 @@
 import logo from "../../../public/logo.png";
+import { Link } from "@remix-run/react";
+import Container from "../Container";
 const navigation = {
-  left: [
-    { name: "How Wagz Works", href: "#" },
-    { name: "Freedom Collar", href: "#" },
-    { name: "Accessories", href: "#" },
-  ],
-  center: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "The Buzz", href: "#" },
-  ],
-  right: [
-    { name: "Contact", href: "#" },
-    { name: "Help", href: "#" },
-    { name: "Return Policy", href: "#" },
-  ],
   social: [
     {
       name: "Facebook",
@@ -67,20 +54,32 @@ const navigation = {
   ],
 };
 
-export default function Footer() {
+export default function Footer(data) {
+  const left = data.data.left.menu.menuItems.nodes;
+  const center = data.data.center.menu.menuItems.nodes;
+  const right = data.data.right.menu.menuItems.nodes;
   return (
-    <footer className="footer" aria-labelledby="footer-heading">
+    <footer className="footer mt-16 pt-8" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl p-8 pt-16">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
-            <a href="/">
-              <span className="sr-only">Wagz Homepage</span>
-              <img className="h-16" src={logo} alt="Wagz" />
-            </a>
-            <div className="flex space-x-6">
+      <Container>
+        <div>
+          <a href="/">
+            <span className="sr-only">Wagz Homepage</span>
+            <img className="h-16" src={logo} alt="Wagz" />
+          </a>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <p className="text-base text-primary">
+              <strong>Get your daily dose of dog</strong>
+            </p>
+            <p className="text-black leading-none pb-4 text-base">
+              Follow us on social and receive the latest news, contests, and
+              amazing dog pics.
+            </p>
+            <div className="space-x-6 hidden md:flex">
               {navigation.social.map((item) => (
                 <a
                   key={item.name}
@@ -93,65 +92,68 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <div className="mt-4 sm:mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 col-span-2">
             <div>
-              <ul className="mt-6 space-y-4">
-                {navigation.left.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-sm leading-6 text-primary"
-                    >
-                      {item.name}
-                    </a>
+              <ul className="space-y-4">
+                {left?.map((item) => (
+                  <li key={item.id}>
+                    <Link to={item.path} className="footer-link">
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <ul className="mt-6 space-y-4">
-                {navigation.center.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-sm leading-6 text-primary"
-                    >
-                      {item.name}
-                    </a>
+              <ul className="space-y-4">
+                {center?.map((item) => (
+                  <li key={item.id}>
+                    <Link to={item.path} className="footer-link">
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <ul className="mt-6 space-y-4">
-                {navigation.right.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-sm leading-6 text-primary"
-                    >
-                      {item.name}
-                    </a>
+              <ul className="space-y-4">
+                {right?.map((item) => (
+                  <li key={item.id}>
+                    <Link to={item.path} className="footer-link">
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
         </div>
-      </div>
-      <div className="mt-4 border-t border-gray-900/10 pt-4">
-        <div className="mx-auto max-w-7xl px-8">
+        <div className="space-x-6 flex md:hidden mt-8">
+          {navigation.social.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className="text-white rounded-full p-2 bg-primary"
+            >
+              <span className="sr-only">{item.name}</span>
+              <item.icon className="h-6 w-6" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      </Container>
+      <div className="border-t border-gray-900/10 pt-2 mt-4">
+        <Container>
           <p className="text-xs leading-5 text-gray-500">
             &copy; {new Date().getFullYear()} Wagz.{" | "}
-            <a href="#" className="underline">
+            <a href="/privacy/" className="underline">
               Privacy Policy
             </a>
             {" | "}
-            <a href="#" className="underline">
+            <a href="/terms-conditions/" className="underline">
               Terms & Conditions
             </a>
           </p>
-        </div>
+        </Container>
       </div>
     </footer>
   );

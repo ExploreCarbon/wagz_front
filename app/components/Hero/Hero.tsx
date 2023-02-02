@@ -1,5 +1,6 @@
+// TODO: Make this into an actual picture HTML element instead of this hacky solution
 type HeroProps = {
-	fullScreenImage: string;
+	largeScreenImage: string;
 	mediumScreenImage: string;
 	smallScreenImage: string;
 	children?: React.ReactNode;
@@ -7,7 +8,7 @@ type HeroProps = {
 };
 export default function Hero({
 	children,
-	fullScreenImage,
+	largeScreenImage,
 	mediumScreenImage,
 	smallScreenImage,
 	alt,
@@ -17,20 +18,24 @@ export default function Hero({
 			<div className="relative hero-image">
 				<div className="absolute inset-0">
 					<img
-						className="h-full w-full object-cover fullScreen"
-						src={fullScreenImage}
+						className="h-full w-full object-cover object-left fullScreen"
+						src={largeScreenImage}
 						alt={alt}
 					/>
-					<img
-						className="h-full w-full object-cover mediumScreen"
-						src={mediumScreenImage}
-						alt={alt}
-					/>
-					<img
-						className="h-full w-full object-cover smallScreen"
-						src={smallScreenImage}
-						alt={alt}
-					/>
+					{mediumScreenImage && (
+						<img
+							className="h-full w-full object-cover object-center mediumScreen"
+							src={mediumScreenImage}
+							alt={alt}
+						/>
+					)}
+					{smallScreenImage && (
+						<img
+							className="h-full w-full object-cover object-center smallScreen"
+							src={smallScreenImage}
+							alt={alt}
+						/>
+					)}
 				</div>
 				<div className="relative py-16 px-6 sm:py-24 lg:py-32 lg:px-8">
 					{children}

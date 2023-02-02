@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900");
 @font-face {
   font-family: "Filson Pro Bold";
   src: url(https://cdn.shopify.com/s/files/1/2800/8456/t/6/assets/wagz-store-filson-pro-bold.woff?v=1601576487);
@@ -27,9 +27,20 @@ input,
 textarea,
 select,
 label,
-span,
-div {
+dd {
   font-family: "Lato", sans-serif;
+}
+
+p {
+  @apply text-base lg:text-xl leading-loose;
+}
+
+p + p {
+  @apply mt-4;
+}
+
+p:last-child {
+  @apply mb-0;
 }
 
 @layer base {
@@ -43,7 +54,7 @@ div {
 }
 
 .navigation_link {
-  @apply relative z-10 flex items-center justify-center uppercase font-bold text-primary hover:text-primary-dark;
+  @apply relative z-10 flex items-center justify-center uppercase font-bold text-primary hover:text-primary-dark text-sm;
 }
 
 .navigation_link::after {
@@ -70,7 +81,7 @@ div {
 
 /* Button */
 .button {
-  @apply relative overflow-hidden bg-primary text-white inline-block uppercase tracking-wide;
+  @apply relative overflow-hidden bg-primary text-white inline-block uppercase tracking-wide font-bold text-center;
   transition: all 0.3s;
   box-shadow: 0;
   transition: 1s;
@@ -249,8 +260,8 @@ h4,
   @apply py-8;
 }
 
-.text-block .text p {
-  @apply text-base lg:text-xl leading-loose;
+.text-block .text h3 {
+  @apply mb-6;
 }
 
 .text-block .buttons {
@@ -273,7 +284,7 @@ h4,
 }
 
 .hero .hero-image {
-  @apply min-h-[350px] md:min-h-[500px] xl:min-h-[600px];
+  @apply min-h-[420px] md:min-h-[580px] xl:min-h-[680px] py-32;
 }
 
 .hero .hero-image img {
@@ -328,6 +339,9 @@ h4,
   height: 15px;
   background: linear-gradient(90deg, #006d9c 0, #49d01f 100%);
 }
+.footer-link {
+  @apply text-base font-semibold text-primary;
+}
 
 .bg-linear {
   background: linear-gradient(90deg, #006d9c 0, #49d01f 100%);
@@ -350,6 +364,125 @@ h4,
 
 .scroll-logos {
   position: relative;
-  animation: slideshow 10s linear infinite;
+  animation: slideshow 20s linear infinite;
   transform: translate3d(0, 0, 0);
+}
+
+.homepage-hero .title {
+  @apply uppercase;
+}
+
+.homepage-hero .text p {
+  @apply text-xl lg:text-3xl leading-9 font-sans;
+}
+
+hr::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(90deg, #006d9c 0, #49d01f 100%);
+}
+
+/* Count Section */
+.large_number {
+  @apply text-[100px] leading-tight font-bold text-primary;
+}
+
+span.text h3 {
+  @apply text-gray;
+}
+
+.text a {
+  @apply text-primary underline;
+}
+
+.scroll-parent {
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  overflow-x: hidden;
+}
+
+.scroll-element {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  animation: primary 20s linear infinite;
+}
+
+@keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+.scroll-element.primary {
+  animation: primary 20s linear infinite;
+}
+
+.scroll-element.secondary {
+  animation: secondary 20s linear infinite;
+}
+@media (max-width: 768px) {
+  .scroll-parent {
+    width: 200%;
+  }
+  .scroll-element.primary {
+    animation: primaryMobile 20s linear infinite;
+  }
+  .scroll-element.secondary {
+    animation: secondaryMobile 20s linear infinite;
+  }
+}
+
+@keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes secondary {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+@keyframes primaryMobile {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -200%;
+  }
+}
+
+@keyframes secondaryMobile {
+  from {
+    left: 200%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+.icons {
+  @apply flex flex-row gap-8;
+}
+
+.icons span {
+  @apply text-primary font-sans font-bold text-lg text-center;
 }

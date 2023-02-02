@@ -2,18 +2,25 @@ import { RemixBrowser } from "@remix-run/react";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { CartProvider } from "@shopify/hydrogen-react";
-import { Provider } from "react-wrap-balancer";
+import { WistiaProvider } from "@wistia/react-embeds";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 function hydrate() {
+	const client = new ApolloClient({
+		cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
+		uri: "https://wagz.local/graphql", // the same uri in our entry.server file
+	});
 	startTransition(() => {
 		hydrateRoot(
 			document,
 			<StrictMode>
-				<Provider>
-					<CartProvider>
-						<RemixBrowser />
-					</CartProvider>
-				</Provider>
+				<CartProvider>
+					<WistiaProvider>
+						<ApolloProvider client={client}>
+							<RemixBrowser />
+						</ApolloProvider>
+					</WistiaProvider>
+				</CartProvider>
 			</StrictMode>,
 		);
 	});
