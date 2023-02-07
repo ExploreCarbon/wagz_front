@@ -1,4 +1,3 @@
-import React from "react";
 import TextBlock from "../TextBlock/TextBlock";
 import Video from "../Video/Video";
 
@@ -20,11 +19,11 @@ const FlexibleContent = (props) => {
         );
       case "Page_Pages_Content_FlexibleContent_Content_Image":
         return (
-          <div className="w-full lg:w-1/2 inset-y-0 isolate lg:absolute md:block right-0">
+          <div className="inset-y-0 right-0 isolate w-full md:block lg:absolute lg:w-1/2">
             <img
               alt=""
               src={data?.image?.largeScreenImage?.mediaItemUrl}
-              className="w-full h-full object-contain object-right xxl:object-right lg:object-right aspect-square"
+              className="xxl:object-right aspect-square h-full w-full object-contain object-right lg:object-right"
             />
           </div>
         );
@@ -33,7 +32,7 @@ const FlexibleContent = (props) => {
     }
   }
   return (
-    <div className="flex flex-col lg:flex-row gap-8 py-24 sm:py-32">
+    <div className="flex flex-col gap-8 py-16 sm:py-32 lg:flex-row">
       {props?.content?.map((data, index) => (
         <div
           className={`w-full lg:w-2/3 ${

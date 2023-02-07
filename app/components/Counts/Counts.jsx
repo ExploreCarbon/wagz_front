@@ -4,7 +4,7 @@ import Text from "../Text/Text";
 
 export default function Counts(props) {
   return (
-    <div className="bg-gray-50 py-24 sm:py-32">
+    <div>
       <Container>
         <div className="mx-auto grid grid-cols-1 gap-8 lg:mx-0 lg:max-w-none">
           <div className="col-span-1">
@@ -31,15 +31,15 @@ export default function Counts(props) {
               </Headline>
             )}
           </div>
-          <div class="col-span-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+          <div className="col-span-1 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
             {props.content.counts.map((count, index) => (
               <div
                 key={count.title}
-                className="flex flex-col h-full col-span-1"
+                className="col-span-1 flex h-full flex-col"
               >
                 <div className="flex flex-row items-center gap-8">
                   <span className="large_number">{index + 1}</span>
-                  <p className="font-sans text-2xl lg:text-5xl text-gray">
+                  <p className="font-sans text-2xl text-gray lg:text-5xl">
                     {count.title}
                   </p>
                 </div>

@@ -30,9 +30,9 @@ export default function Navigation(menu) {
   }, []);
 
   return (
-    <div className="fixed w-full top-0 z-10">
+    <div className="fixed top-0 z-10 w-full">
       {menu && (
-        <div className={`${navbarColor}  transition-all duration-400`}>
+        <div className={`${navbarColor}  duration-400 transition-all`}>
           {/* Mobile menu */}
           <Transition.Root show={open} as={Fragment}>
             <Dialog
@@ -66,7 +66,7 @@ export default function Navigation(menu) {
                     <div className="flex px-4 pt-5 pb-2">
                       <button
                         type="button"
-                        className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                        className="text-gray-400 -m-2 inline-flex items-center justify-center rounded-md p-2"
                         onClick={() => setOpen(false)}
                       >
                         <span className="sr-only">Close menu</span>
@@ -74,12 +74,12 @@ export default function Navigation(menu) {
                       </button>
                     </div>
 
-                    <div className="space-y-6 border-t border-gray-200 py-6 px-4">
+                    <div className="border-gray-200 space-y-6 border-t py-6 px-4">
                       {menu?.menu?.map((obj) => (
                         <div key={obj.id} className="flow-root">
                           <Link
                             to={obj.path}
-                            className="-m-2 block p-2 font-medium text-gray-900"
+                            className="text-gray-900 -m-2 block p-2 font-medium"
                           >
                             {obj.label}
                           </Link>
@@ -95,14 +95,14 @@ export default function Navigation(menu) {
           <header className="relative">
             <nav
               aria-label="Top"
-              className="container mx-auto px-4 lg:px-8 max-w-9xl"
+              className="max-w-9xl container mx-auto px-4 lg:px-8"
             >
-              <div className="">
+              <div>
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center lg:hidden">
                     <button
                       type="button"
-                      className="-ml-2 rounded-md bg-white p-2 text-gray-400"
+                      className="text-gray-400 -ml-2 rounded-md bg-white p-2"
                       onClick={() => setOpen(true)}
                     >
                       <span className="sr-only">Open menu</span>
@@ -110,7 +110,7 @@ export default function Navigation(menu) {
                     </button>
                   </div>
                   {/* Logo */}
-                  <div className="flex-1 flex justify-center lg:justify-start">
+                  <div className="flex flex-1 justify-center lg:justify-start">
                     <Link to="/" className="flex">
                       <span className="sr-only">Wagz</span>
                       <img className="h-16 w-auto" src={logo} alt="" />
@@ -124,7 +124,7 @@ export default function Navigation(menu) {
                         <Link
                           key={obj.id}
                           to={obj.path}
-                          className="flex items-center navigation_link"
+                          className="navigation_link flex items-center"
                           prefetch="intent"
                         >
                           {obj.label}

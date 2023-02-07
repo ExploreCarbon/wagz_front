@@ -75,7 +75,7 @@ export default function Footer(data) {
             <p className="text-base text-primary">
               <strong>Get your daily dose of dog</strong>
             </p>
-            <p className="text-black leading-none pb-4 text-base">
+            <p className="text-black leading-none pb-4 text-base w-full lg:w-3/4">
               Follow us on social and receive the latest news, contests, and
               amazing dog pics.
             </p>
@@ -141,7 +141,7 @@ export default function Footer(data) {
           ))}
         </div>
       </Container>
-      <div className="border-t border-gray-900/10 pt-2 mt-4">
+      <div className="pt-2">
         <Container>
           <p className="text-xs leading-5 text-gray-500">
             &copy; {new Date().getFullYear()} Wagz.{" | "}

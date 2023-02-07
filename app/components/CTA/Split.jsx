@@ -8,7 +8,7 @@ export default function Split({
   buttonLink,
 }) {
   return (
-    <div className="relative bg-primary overflow-hidden">
+    <div className="relative overflow-hidden bg-primary">
       <div className="h-56 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
         <img
           className="h-full w-full object-cover"
@@ -19,7 +19,7 @@ export default function Split({
       <div className="relative mx-auto max-w-7xl py-12 px-6 lg:px-8 lg:py-16">
         <div className="md:ml-auto md:w-1/2 md:pl-10">
           {subTitle && (
-            <Header extraClass="pb-2" size="h3" color="white">
+            <Header extraclassName="pb-2" size="h3" color="white">
               {subTitle}
             </Header>
           )}
@@ -31,7 +31,7 @@ export default function Split({
             <div className="mt-8">
               <div className="inline-flex rounded-md shadow">
                 <Button variant="white">
-                  <a href={buttonLink} className="text-primary font-bold">
+                  <a href={buttonLink} className="font-bold text-primary">
                     {buttonText}
                   </a>
                 </Button>

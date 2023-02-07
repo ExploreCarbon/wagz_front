@@ -21,11 +21,11 @@ function TextBlock({
   subTitle = "",
   text,
   titleColor = "primary",
-  supColor = "primary",
-  subColor = "primary",
+  supColor = "black",
+  subColor = "black",
 }: TextBlockProps): JSX.Element {
   return (
-    <div className="flex flex-col text-block justify-center h-full gap-8">
+    <div className="text-block flex h-full flex-col justify-center gap-8">
       <div>
         <div className="pb-4">
           {supTitle && (
@@ -52,7 +52,7 @@ function TextBlock({
             <img
               src={icon.icon.mediaItemUrl}
               alt={icon.icon.altText}
-              className="h-16 w-auto mx-auto pb-2"
+              className="mx-auto h-16 w-auto pb-2"
             />
             <span>{icon.label}</span>
           </div>
@@ -61,13 +61,17 @@ function TextBlock({
 
       <div className="buttons">
         {buttons?.map((button, index: KeyType) => (
-          <Link
-            key={index}
-            to={button.url}
-            className={`button ${button.size} ${button.color}`}
-          >
-            {button.label}
-          </Link>
+          <>
+            {button.label && button.url && (
+              <Link
+                key={index}
+                to={button.url}
+                className={`button ${button.size} ${button.color}`}
+              >
+                {button.label}
+              </Link>
+            )}
+          </>
         ))}
       </div>
     </div>

@@ -9,6 +9,8 @@ import Logos from "../components/Logos/Logos";
 import Counts from "../components/Counts/Counts";
 import Social from "../components/Social/Social";
 import Headline from "../components/Headline/Headline";
+import Slider from "../components/Slider/Slider";
+import { Link } from "@remix-run/react";
 
 export const loader = async () => {
   const slug = "/";
@@ -37,7 +39,7 @@ export default function Index() {
             key={index}
           >
             <Container>
-              <div className={`w-full lg:w-3/5 homepage-hero`}>
+              <div className={`homepage-hero w-full lg:w-3/5`}>
                 {page.contentBlock?.heading && (
                   <Headline
                     size="h1"
@@ -51,6 +53,20 @@ export default function Index() {
                     <Text text={page.contentBlock?.text} />
                   </div>
                 )}
+                <div className="flex flex-col justify-start gap-8 pt-8 lg:flex-row">
+                  {page.contentBlock?.cta?.cta &&
+                    page.contentBlock?.cta?.cta?.map((cta, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          to={cta?.url}
+                          className={`button ${cta?.size} ${cta?.color}`}
+                        >
+                          {cta?.label}
+                        </Link>
+                      );
+                    })}
+                </div>
               </div>
             </Container>
           </Hero>
@@ -59,7 +75,7 @@ export default function Index() {
         return (
           <div
             key={index}
-            className={`${page.paddingTop} ${page.paddingBottom}`}
+            className={`${page.paddingTop} ${page.paddingBottom} relative`}
           >
             <Icons content={page} />
           </div>
@@ -93,8 +109,19 @@ export default function Index() {
         );
       case "Page_Pages_Content_Separator":
         return (
-          <div className="relative">
-            <hr key={index} />
+          <div className="relative" key={index}>
+            <hr />
+          </div>
+        );
+      case "Page_Pages_Content_Slider":
+        return (
+          <div
+            key={index}
+            className={`relative ${page.paddingTop} ${page.paddingBottom}`}
+          >
+            <div className="relative">
+              <Slider content={page} />
+            </div>
           </div>
         );
       case "Page_Pages_Content_FlexibleContent":

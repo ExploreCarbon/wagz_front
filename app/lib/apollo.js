@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 export const graphqlClient = new ApolloClient({
-  uri: "http://wagz.local/graphql",
+  uri: "https://dev-wagz.pantheonsite.io/graphql",
   cache: new InMemoryCache(),
   ssrMode: true,
   shouldBatch: true,
@@ -63,10 +63,65 @@ export const PAGE_QUERY = gql`
                 }
               }
             }
+            ... on Page_Pages_Content_Slider {
+              fieldGroupName
+              slide {
+                content {
+                  heading {
+                    heading {
+                      color
+                      heading
+                      size
+                    }
+                    subHeading {
+                      color
+                      subHeading
+                      size
+                    }
+                    supHeading {
+                      color
+                      supHeading
+                      size
+                    }
+                  }
+
+                  cta {
+                    cta {
+                      color
+                      fieldGroupName
+                      label
+                      size
+                      target
+                      url
+                    }
+                    fieldGroupName
+                  }
+                  text
+                }
+                image {
+                  image {
+                    altText
+                    largeScreenImage {
+                      altText
+                      mediaItemUrl
+                    }
+                    mediumScreenImage {
+                      altText
+                      mediaItemUrl
+                    }
+                    smallScreenImage {
+                      altText
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+            }
             ... on Page_Pages_Content_Icons {
               fieldGroupName
               paddingTop
               paddingBottom
+              structure
               heading {
                 color
                 heading
@@ -82,10 +137,31 @@ export const PAGE_QUERY = gql`
                 supHeading
                 size
               }
+              text
+              image {
+                mediaItemUrl
+                altText
+              }
+              cta {
+                color
+                size
+                label
+                url
+                target
+              }
               icons {
                 title
                 text
+                tabTitle
                 icon {
+                  mediaItemUrl
+                  altText
+                }
+                cta {
+                  url
+                  label
+                }
+                image {
                   mediaItemUrl
                   altText
                 }
@@ -123,6 +199,17 @@ export const PAGE_QUERY = gql`
                   color
                   supHeading
                   size
+                }
+                cta {
+                  cta {
+                    color
+                    fieldGroupName
+                    label
+                    size
+                    target
+                    url
+                  }
+                  fieldGroupName
                 }
                 text
               }

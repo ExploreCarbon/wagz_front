@@ -15,6 +15,10 @@ const Social = (props) => {
         <div className="flex flex-row flex-wrap justify-center">
           <Text text={content.subtitle} />
         </div>
+        <div className="pt-16">
+          <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+          <div className="elfsight-app-0e3e56da-b9e0-48fb-814a-4691006c37d0"></div>
+        </div>
       </div>
     </Container>
   );

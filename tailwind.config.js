@@ -38,4 +38,16 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+    "pt-0",
+    "pt-8",
+    "pt-16",
+    "pt-64",
+    "pt-32",
+    "pb-0",
+    "pb-8",
+    "pb-16",
+    "pb-64",
+    "pb-32",
+  ],
 };

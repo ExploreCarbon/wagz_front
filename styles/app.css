@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900");
+
 @font-face {
   font-family: "Filson Pro Bold";
   src: url(https://cdn.shopify.com/s/files/1/2800/8456/t/6/assets/wagz-store-filson-pro-bold.woff?v=1601576487);
@@ -32,7 +32,7 @@ dd {
 }
 
 p {
-  @apply text-base lg:text-xl leading-loose;
+  @apply text-base font-[300] leading-loose lg:text-xl;
 }
 
 p + p {
@@ -54,7 +54,7 @@ p:last-child {
 }
 
 .navigation_link {
-  @apply relative z-10 flex items-center justify-center uppercase font-bold text-primary hover:text-primary-dark text-sm;
+  @apply relative z-10 flex items-center justify-center text-sm font-bold uppercase text-primary hover:text-primary-dark;
 }
 
 .navigation_link::after {
@@ -76,12 +76,12 @@ p:last-child {
 }
 
 .wagz-container {
-  @apply mx-auto container max-w-7xl px-8;
+  @apply container mx-auto max-w-7xl px-8;
 }
 
 /* Button */
 .button {
-  @apply relative overflow-hidden bg-primary text-white inline-block uppercase tracking-wide font-bold text-center;
+  @apply relative inline-block overflow-hidden bg-primary text-center font-bold uppercase tracking-wide text-white;
   transition: all 0.3s;
   box-shadow: 0;
   transition: 1s;
@@ -113,7 +113,7 @@ p:last-child {
 }
 
 .button.white:hover {
-  @apply text-primary-dark border-primary-dark;
+  @apply border-primary-dark text-primary-dark;
   box-shadow: 10px 10px 0 rgba(var(--primary), 0.5);
 }
 
@@ -133,6 +133,10 @@ p:last-child {
 }
 .button.large {
   @apply px-16 py-6 text-xl;
+}
+
+.button.xLarge {
+  @apply px-32 py-6 text-xl;
 }
 
 /* Link */
@@ -209,21 +213,21 @@ h4 {
 
 h1,
 .h1 {
-  @apply font-bold text-4xl lg:text-6xl;
+  @apply text-4xl font-bold lg:text-6xl;
 }
 
 h2,
 .h2 {
-  @apply font-bold text-2xl lg:text-4xl;
+  @apply text-2xl font-bold lg:text-4xl;
 }
 
 h3,
 .h3 {
-  @apply font-bold text-xl lg:text-3xl;
+  @apply text-xl font-bold lg:text-3xl;
 }
 h4,
 .h4 {
-  @apply font-bold text-xl lg:text-2xl;
+  @apply text-xl font-bold lg:text-2xl;
 }
 
 /* CTA */
@@ -243,13 +247,13 @@ h4,
 }
 
 .circle-text {
-  @apply text-2xl text-white lg:w-3/4 pb-4;
+  @apply pb-4 text-2xl text-white lg:w-3/4;
 }
 
 /* Text Block */
 .text-block .subTitle,
 .text-block .supTitle {
-  @apply uppercase text-black text-lg;
+  @apply text-lg uppercase;
 }
 
 .text-block .title {
@@ -265,7 +269,7 @@ h4,
 }
 
 .text-block .buttons {
-  @apply flex flex-col md:flex-row gap-8;
+  @apply flex flex-col gap-8 md:flex-row;
 }
 
 .copywrite {
@@ -284,7 +288,7 @@ h4,
 }
 
 .hero .hero-image {
-  @apply min-h-[420px] md:min-h-[580px] xl:min-h-[680px] py-32;
+  @apply min-h-[420px] py-32 md:min-h-[580px] xl:min-h-[680px];
 }
 
 .hero .hero-image img {
@@ -302,7 +306,6 @@ h4,
 }
 
 .hero {
-  background: linear-gradient(90deg, #006d9c 0, #49d01f 100%);
 }
 
 .hero::after {
@@ -373,7 +376,7 @@ h4,
 }
 
 .homepage-hero .text p {
-  @apply text-xl lg:text-3xl leading-9 font-sans;
+  @apply font-sans text-xl leading-9 lg:text-3xl;
 }
 
 hr::after {
@@ -388,7 +391,7 @@ hr::after {
 
 /* Count Section */
 .large_number {
-  @apply text-[100px] leading-tight font-bold text-primary;
+  @apply text-[100px] font-bold leading-tight text-primary;
 }
 
 span.text h3 {
@@ -484,5 +487,43 @@ span.text h3 {
 }
 
 .icons span {
-  @apply text-primary font-sans font-bold text-lg text-center;
+  @apply text-center font-sans text-lg font-bold text-primary;
+}
+
+/* Slider */
+.slick-slider {
+  @apply p-8;
+}
+
+.slick-dots {
+  left: 0;
+}
+
+.slick-track {
+  @apply flex items-center justify-center !important;
+}
+
+.icon-selector {
+  @apply relative cursor-pointer hover:rounded-lg hover:bg-primary/50;
+  transition: 0.5s ease;
+}
+
+.icon-selector.selected {
+  background: #fff;
+}
+
+.slider-background:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 600px;
+  background: #1c9add;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.slider-text .text {
+  @apply text-white;
 }

@@ -12,7 +12,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o build",
     "deploy-storybook": "storybook-to-ghpages",
-    "chromatic": "npx chromatic --project-token=d452ac238579"
+    "chromatic": "npx chromatic --project-token=d452ac238579",
+    "start": "remix-serve build",
+    "deploy": "fly deploy --remote-only"
   },
   "dependencies": {
     "@apollo/client": "^3.7.5",
@@ -32,11 +34,15 @@
     "framer-motion": "^8.4.2",
     "graphql": "^16.6.0",
     "isbot": "^3.6.5",
+    "prettier-plugin-tailwindcss": "^0.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-flickity-component": "^4.0.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
-    "react-wrap-balancer": "^0.3.0"
+    "react-wrap-balancer": "^0.3.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^9.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
