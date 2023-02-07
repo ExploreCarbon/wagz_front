@@ -32,7 +32,7 @@ const FlexibleContent = (props) => {
     }
   }
   return (
-    <div className="flex flex-col gap-8 py-16 sm:py-32 lg:flex-row">
+    <div className="flex flex-col gap-8 py-0 lg:flex-row lg:py-32">
       {props?.content?.map((data, index) => (
         <div
           className={`w-full lg:w-2/3 ${

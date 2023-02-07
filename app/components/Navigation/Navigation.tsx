@@ -30,7 +30,7 @@ export default function Navigation(menu) {
   }, []);
 
   return (
-    <div className="fixed top-0 z-10 w-full">
+    <div className="fixed top-0 z-10 w-full max-w-[1900px]">
       {menu && (
         <div className={`${navbarColor}  duration-400 transition-all`}>
           {/* Mobile menu */}

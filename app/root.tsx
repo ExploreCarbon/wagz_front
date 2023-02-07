@@ -76,7 +76,7 @@ export default function App() {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </head>
-      <body className="bg-gray-50 antialiased">
+      <body className="bg-gray-50 relative mx-auto max-w-[1900px] antialiased">
         <Navigation menu={headerMenu} />
         <Outlet />
         <ScrollRestoration />

@@ -4,14 +4,6 @@ import Container from "../Container";
 
 const Slider = (props) => {
   const content = props.content.slide;
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    centerMode: true,
-  };
   // select which slide to use
   const [selectedSlide, setSelectedSlide] = useState(content[0]);
   // handle slide change forward
@@ -78,13 +70,13 @@ const Slider = (props) => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             class="h-12 w-12 cursor-pointer text-white"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLineJoin="round"
               d="M15.75 19.5L8.25 12l7.5-7.5"
             />
           </svg>
